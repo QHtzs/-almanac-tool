@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,9 +16,45 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+INCLUDE_ROOT_PATH = $$PWD/3rd/include
+LIB_ROOT_PATH = $$PWD/3rd/lib
+
+
+INCLUDEPATH += \
+        $$INCLUDE_ROOT_PATH/opencv \
+        $$INCLUDE_ROOT_PATH/pvt.leptonica \
+        $$INCLUDE_ROOT_PATH/tesseract \
+        $$INCLUDE_ROOT_PATH/tesseract/src  \
+        $$INCLUDE_ROOT_PATH/tesseract/src/api \
+        $$INCLUDE_ROOT_PATH/tesseract/src/arch \
+        $$INCLUDE_ROOT_PATH/tesseract/src/ccmain \
+        $$INCLUDE_ROOT_PATH/tesseract/src/ccstruct \
+        $$INCLUDE_ROOT_PATH/tesseract/src/ccutil \
+        $$INCLUDE_ROOT_PATH/tesseract/src/classify \
+        $$INCLUDE_ROOT_PATH/tesseract/src/cutil \
+        $$INCLUDE_ROOT_PATH/tesseract/src/dict \
+        $$INCLUDE_ROOT_PATH/tesseract/src/lstm \
+        $$INCLUDE_ROOT_PATH/tesseract/src/opencl \
+        $$INCLUDE_ROOT_PATH/tesseract/src/textord \
+        $$INCLUDE_ROOT_PATH/tesseract/src/training \
+        $$INCLUDE_ROOT_PATH/tesseract/src/viewer \
+        $$INCLUDE_ROOT_PATH/tesseract/src/vs2010 \
+        $$INCLUDE_ROOT_PATH/tesseract/src/wordrec
+
+LIBS += \
+    -L$${LIB_ROOT_PATH} \
+    -lopencv_world400 \
+    -lpvt.cppan.demo.danbloomberg.leptonica-1.76.0 \
+    -ltesseract40
+
+
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    protocol/frame.cpp \
+    protocol/protobase.cpp \
+    protocol/protodirect.cpp \
+    protocol/prototcp.cpp \
     shapes/linehist.cpp \
     shapes/linevert.cpp \
     shapes/rectlike.cpp \
@@ -31,6 +68,10 @@ SOURCES += \
 
 HEADERS += \
     mainwindow.h \
+    protocol/frame.h \
+    protocol/protobase.h \
+    protocol/protodirect.h \
+    protocol/prototcp.h \
     shapes/linehist.h \
     shapes/linevert.h \
     shapes/rectlike.h \
