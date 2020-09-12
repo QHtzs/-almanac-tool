@@ -2,6 +2,8 @@
 #define CVTOOLS_H
 
 #include "opencv2/core.hpp"
+#include "opencv2/imgproc.hpp"
+#include "opencv2/imgcodecs.hpp"
 #include <vector>
 #include <list>
 #include <algorithm>
@@ -22,10 +24,10 @@
     else if(size.width <=0 || size.height <=0) ok= false; \
 }while(0)
 
-/// 简单的对opencv一些要用的方法做封装
+/// opencv util tools
 namespace tools {
 
-/// 轴方向，0数值轴
+/// axis
 enum AXIS {
     HIST,
     VERT

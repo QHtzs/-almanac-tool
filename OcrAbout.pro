@@ -49,6 +49,7 @@ LIBS += \
 
 
 SOURCES += \
+    cv_tool/cvtools.cpp \
     main.cpp \
     mainwindow.cpp \
     protocol/frame.cpp \
@@ -67,6 +68,7 @@ SOURCES += \
     widgets/modelserverselector.cpp
 
 HEADERS += \
+    cv_tool/cvtools.h \
     mainwindow.h \
     protocol/frame.h \
     protocol/protobase.h \
