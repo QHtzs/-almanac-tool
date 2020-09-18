@@ -4,3 +4,6 @@
 >
 > LGPL
 >
+
+# [早期版本](https://github.com/ExcellentBear/EbTool2)
+
